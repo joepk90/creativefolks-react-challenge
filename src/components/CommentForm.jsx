@@ -68,7 +68,7 @@ const CommentForm = ({ postId }) => {
                     value={bodyValue}
                     onChange={e => setBodyValue(e.target.value)}
                 />
-                <Button type="submit" value="add comment">Add Comment</Button>
+                <Button type="submit" value="add comment" className="btn btn-purple" >Add Comment</Button>
             </FormGroup>
         </form>
     );

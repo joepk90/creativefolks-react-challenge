@@ -1,8 +1,8 @@
-const Heading = ({ children, level }) => {
+const Heading = ({ children, level, ...rest }) => {
 
     const Component = !level ? 'h1' : `h${level}`;
 
-    return <Component>{children}</Component>
+    return <Component {...rest}>{children}</Component>
 }
 
 export default Heading;

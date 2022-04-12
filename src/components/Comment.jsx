@@ -6,7 +6,7 @@ const Comment = ({ comment }) => {
 
     return (
         <div className="bg-faded rounded p-4 mb-2">
-            <Heading level={6}>This comment belongs to the post ID: {postId}</Heading>
+            <Heading level={6} className="text-purple">This comment belongs to the post ID: {postId}</Heading>
             <p>{body}</p>
             <p>Comment ID: {id} - Comment Post ID: {postId}</p>
         </div>
