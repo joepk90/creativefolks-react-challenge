@@ -1,18 +1,17 @@
 import { useContext } from "react";
 import { Context } from 'contexts/Context';
 import Comment from "components/Comment";
+import { filterComments } from "lib/utilities";
 
 const CommentList = ({ postId }) => {
 
     const { comments } = useContext(Context);
 
-    const filterComments = (postId) => {
-        return comments.filter(comment => parseInt(comment.postId) === parseInt(postId))
-    }
+    const postComments = filterComments(postId, comments)
 
     return (
         <div className="comment-list">
-            {filterComments(postId).map(comment => {
+            {postComments.map(comment => {
                 return <Comment key={comment.id} comment={comment} />
             })}
         </div>
