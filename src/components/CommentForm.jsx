@@ -11,8 +11,20 @@ const CommentForm = ({ postId }) => {
 
     const [postIdValue, setPostIdValue] = useState('');
     const [bodyValue, setBodyValue] = useState('');
+    const [showIdValidationMessage, setShowIdValidationMessage] = useState(false);
 
     const { dispatch, comments } = useContext(Context);
+
+    const handleIdInputOnChange = (id) => {
+        setPostIdValue(id);
+
+        if (isPostIdCorrect(id) === true) {
+            setShowIdValidationMessage(false)
+            return;
+        }
+
+        setShowIdValidationMessage(true)
+    }
 
     const isPostIdCorrect = (id) => {
         if (parseInt(id) === parseInt(postId)) return true
@@ -46,8 +58,10 @@ const CommentForm = ({ postId }) => {
                     placeholder="id"
                     min="1"
                     value={postIdValue}
-                    onChange={e => setPostIdValue(e.target.value)}
+                    onChange={e => handleIdInputOnChange(e.target.value)}
                 />
+
+                <span className='text-danger' style={{ display: showIdValidationMessage ? 'block' : 'none' }}>ID does not match Post Id</span>
 
                 <TextArea
                     type="text"
