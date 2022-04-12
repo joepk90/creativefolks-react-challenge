@@ -3,6 +3,7 @@ import Input from "components/common/Input";
 import Button from "components/common/Button";
 import Heading from 'components/common/Heading';
 import FormGroup from "components/common/FormGroup";
+import TextArea from "components/common/TextArea";
 
 const CommentForm = () => {
 
@@ -21,7 +22,7 @@ const CommentForm = () => {
                     onChange={e => setPostIdValue(e.target.value)}
                 />
 
-                <Input
+                <TextArea
                     type="text"
                     placeholder="Comment body..."
                     value={bodyValue}
