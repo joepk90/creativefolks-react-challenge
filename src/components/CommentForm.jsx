@@ -35,7 +35,6 @@ const CommentForm = ({ postId }) => {
         e.preventDefault();
 
         if (isPostIdCorrect(postIdValue) === false) {
-            console.log('test');
             return;
         }
 

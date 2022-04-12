@@ -10,7 +10,7 @@ const CommentList = ({ postId }) => {
     const postComments = filterComments(postId, comments)
 
     return (
-        <div className="comment-list">
+        <div className="comment-list mb-5">
             {postComments.map(comment => {
                 return <Comment key={comment.id} comment={comment} />
             })}
