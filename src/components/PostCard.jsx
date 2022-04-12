@@ -45,14 +45,19 @@ const PostCard = ({ post }) => {
 
     }
 
-    const renderComments = () => {
+    const renderCommentElements = () => {
 
         if (showComments === false) return (<></>);
 
         return (
             <>
                 <CommentList postId={post.id} />
-                <CommentForm postId={post.id} />
+
+                {/* if no comments - render the comment form  */}
+                {postComments.length === 0 ? (
+                    <CommentForm postId={post.id} />
+                ) : (<></>)}
+
             </>
         )
     }
@@ -63,7 +68,7 @@ const PostCard = ({ post }) => {
             <p>The post id is {post.id}</p>
 
             {renderToggleCommentsLink()}
-            {renderComments()}
+            {renderCommentElements()}
 
         </div>
     );
