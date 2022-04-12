@@ -1,6 +1,5 @@
-
-
-import { createContext } from 'react';
+import { createContext, useReducer } from 'react';
+import { commentReducer } from './reducers';
 
 export const Context = createContext();
 
@@ -21,7 +20,7 @@ const ContextProvidor = ({ children }) => {
         }
     ]
 
-    const comments = [
+    const [comments, dispatch] = useReducer(commentReducer, [
         {
             "id": 1,
             "body": "some comment data related to post 1",
@@ -37,10 +36,10 @@ const ContextProvidor = ({ children }) => {
             "body": "Here's a comment!",
             "postId": 2
         }
-    ]
+    ]);
 
     return (
-        <Context.Provider value={{ posts, comments }}>
+        <Context.Provider value={{ posts, comments, dispatch }}>
             {children}
         </Context.Provider>
     );
