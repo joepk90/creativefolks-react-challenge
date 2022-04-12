@@ -35,7 +35,7 @@ const PostCard = ({ post }) => {
         return (
             <>
                 <CommentList postId={post.id} />
-                <CommentForm />
+                <CommentForm postId={post.id} />
             </>
         )
     }
