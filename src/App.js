@@ -1,29 +1,14 @@
-import PostList from 'components/PostList';
+import { Routes, Route } from "react-router-dom";
 import ContextProvidor from 'contexts/Context';
-import Container from 'components/common/Container';
-import Section from 'components/common/Section';
-import Row from 'components/common/Row';
-import Heading from 'components/common/Heading';
+import Posts from "containers/Posts";
 
 function App() {
   return (
     <div className="App">
       <ContextProvidor>
-
-        <Section>
-          <Container>
-            <Heading>React Challenge</Heading>
-          </Container>
-        </Section>
-
-        <Section>
-          <Container>
-            <Row>
-              <PostList />
-            </Row>
-          </Container>
-        </Section>
-
+        <Routes>
+          <Route path="/" element={<Posts />} />
+        </Routes>
       </ContextProvidor>
     </div>
   );
