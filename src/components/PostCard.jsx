@@ -3,6 +3,7 @@ import CommentList from "components/CommentList";
 import { Context } from 'contexts/Context';
 import { filterComments } from 'lib/utilities';
 import CommentForm from 'components/CommentForm';
+import { Link } from 'react-router-dom';
 
 const PostCard = ({ post }) => {
 
@@ -42,7 +43,9 @@ const PostCard = ({ post }) => {
 
     return (
         <div className="post-card">
-            <h2 >{post.title}</h2>
+            <Link to={`/post/${post.id}`}>
+                <h2 >{post.title}</h2>
+            </Link>
             <p>The post id is {post.id}</p>
 
             {renderToggleCommentsLink()}
