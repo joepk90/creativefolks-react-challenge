@@ -5,6 +5,7 @@ import { Context } from 'contexts/Context';
 import { filterComments } from 'lib/utilities';
 import CommentForm from 'components/CommentForm';
 import { Link } from 'react-router-dom';
+import Button from 'components/common/Button';
 
 const PostCard = ({ post }) => {
 
@@ -36,11 +37,10 @@ const PostCard = ({ post }) => {
         const showHideCommentsText = showComments ? hideCommentText : showCommentText;
 
         return (
-            <a
-                role="button"
-                className='small d-block mb-3'
+            <Button
+                className='btn btn-link px-0'
                 onClick={() => setShowComments(!showComments)}
-            >{showHideCommentsText} ({postComments.length})</a>
+            >{showHideCommentsText} ({postComments.length})</Button>
         );
 
     }
