@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import CommentList from "components/CommentList";
 import { Context } from 'contexts/Context';
 import { filterComments } from 'lib/utilities';
+import CommentForm from 'components/CommentForm';
 
 const PostCard = ({ post }) => {
 
@@ -34,6 +35,7 @@ const PostCard = ({ post }) => {
         return (
             <>
                 <CommentList postId={post.id} />
+                <CommentForm />
             </>
         )
     }
