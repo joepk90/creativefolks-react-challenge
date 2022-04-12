@@ -1,0 +1,17 @@
+.text-purple {
+    color: rgb(151, 40, 255)
+}
+
+.btn-purple {
+    background-color: rgb(168, 85, 247);
+    border-color: rgb(168, 85, 247);
+    color: #fff;
+}
+
+.btn-purple:focus {
+    box-shadow: 0 0 0 2px rgb(76, 28, 120);
+}
+
+.btn-purple:hover {
+    box-shadow: 0 0 0 2px rgb(76, 28, 120);
+}
