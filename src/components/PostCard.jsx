@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import CommentList from "components/CommentList";
 import { Context } from 'contexts/Context';
 import { filterComments } from 'lib/utilities';
@@ -7,11 +8,26 @@ import { Link } from 'react-router-dom';
 
 const PostCard = ({ post }) => {
 
+    let params = useParams();
+
     const { comments } = useContext(Context)
 
     const [showComments, setShowComments] = useState(false)
 
     const postComments = filterComments(post.id, comments)
+
+    const renderTitle = () => {
+
+        const title = <h2 >{post.title}</h2>
+
+        if (parseInt(params.postId) === parseInt(post.id)) return title;
+
+        return (
+            <Link to={`/post/${post.id}`}>
+                {title}
+            </Link>
+        )
+    }
 
     const renderToggleCommentsLink = () => {
 
@@ -43,9 +59,7 @@ const PostCard = ({ post }) => {
 
     return (
         <div className="post-card">
-            <Link to={`/post/${post.id}`}>
-                <h2 >{post.title}</h2>
-            </Link>
+            {renderTitle()}
             <p>The post id is {post.id}</p>
 
             {renderToggleCommentsLink()}
